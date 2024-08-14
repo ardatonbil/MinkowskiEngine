@@ -728,6 +728,8 @@ int omp_get_num_procs(void) __attribute__ ((weak));
 #endif
 #endif
 
+#define MB __asm__ __volatile__("mfence" ::: "memory") //check this line
+
 static __inline void blas_unlock(volatile BLASULONG *address){
   MB;
   *address = 0;
