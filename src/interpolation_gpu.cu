@@ -36,7 +36,9 @@
 
 #include <pybind11/pybind11.h>
 #include <torch/extension.h>
-
+#ifdef float  //compatibility with pytorch
+#undef float
+#endif
 namespace minkowski {
 
 template <typename coordinate_type,
